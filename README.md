@@ -1,2 +1,2 @@
 # Omnipotent
-An all-encompassing social site made in ASP.NET and Blazor
+An all-encompassing social site made in Laravel

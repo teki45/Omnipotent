@@ -1,5 +1,7 @@
 <?php
+
 require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/conn.php';
 
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;

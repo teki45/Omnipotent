@@ -1,0 +1,16 @@
+{% extends 'layout.twig.html'%}
+
+{% block title %}Index{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div id="cd-title">Sign up to Omnipotent</div>
+    <div id="cd-content">
+        <form method="post" action="">
+            <input type="text" name="username" placeholder="Username">
+            <input type="password" name="password" placeholder="Password">
+            <input type="submit" value="Sign up">
+        </form>
+    </div>
+</div>
+{% endblock content %}

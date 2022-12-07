@@ -1,2 +1,2 @@
 # Omnipotent
-An all-encompassing social site made in PHP + Bramus Router + Twig
+An all-encompassing social site made in PHP and Bramus Router + Twig

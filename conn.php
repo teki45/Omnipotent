@@ -1,10 +1,11 @@
 <?php
 
-$hostname = "localhost";
-$username = "root";
-$password = "";
-$database = "omnipotent";
+ob_start();
 
-$conn = new mysqli($hostname, $username, $password, $database);
+$hostname = 'localhost';
+$username = 'root';
+$password = '';
+$database = 'omnipotent';
 
-if ($conn->connect_error) { die("Connection failed " . $conn->connect_error); }
+$conn = mysqli_connect($hostname, $username, $password, $database) or die('Connection to database failed');
+

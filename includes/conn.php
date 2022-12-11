@@ -8,4 +8,3 @@ $password = '';
 $database = 'omnipotent';
 
 $conn = new mysqli($hostname, $username, $password, $database) or die('Connection to database failed');
-

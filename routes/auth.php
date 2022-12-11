@@ -29,7 +29,7 @@ $router->post('/signup', function() use($twig, $conn) {
     $uid = generate_random_string(20);
 
     $stmt = $conn->prepare("INSERT INTO users (uid, username, email, password) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param('ssss', $uid, $username, $email, $password);
+    $stmt->bind_param('ssss', $uid, $username, $email, $hashed_password);
 
     if(!$stmt->execute()) {
         exit('Failed to execute query');

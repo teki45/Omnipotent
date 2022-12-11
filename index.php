@@ -1,20 +1,5 @@
-<?php
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/layout/header.php'; ?>
 
-require __DIR__ . '/vendor/autoload.php';
-require __DIR__ . '/includes/conn.php';
-require __DIR__ . '/includes/functions.php';
 
-use Twig\Environment;
-use Twig\Loader\FilesystemLoader;
 
-$twig = new Environment(new FilesystemLoader(__DIR__ . '/static/templates'));
-
-$router = new \Bramus\Router\Router();
-
-$router->get('/', function() use($twig) {
-    echo $twig->render('/index.twig.html', ['session' => $_SESSION]);
-});
-
-include __DIR__ . '/routes/auth.php';
-
-$router->run();
+<?php include_once $_SERVER['DOCUMENT_ROOT'] . '/includes/layout/footer.php'; ?>

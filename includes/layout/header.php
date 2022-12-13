@@ -35,7 +35,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php';
             if (!isset($_SESSION['uid'])) {
                 echo '<a href="/sign/up.php" class="link">Sign up</a> <a href="/sign/in.php" class="link">Sign in</a>';
             } else {
-                echo '<a href="/sign/up.php" class="link">Welcome, '.$user_info['username'].'</a><a href="/sign/out.php" class="link">Sign out</a>';
+                echo '<a href="/sign/out.php" class="link">Sign out </a>';
             }
             ?>
         </div>
@@ -43,8 +43,10 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php';
     <div id="content">
             <div id="left-side">
                 <div class="card">
-                    <div id="cd-title">Card</div>
-                    <div id="cd-content">blasidoaijwid</div>
+                    <div id="cd-title"><?php if (isset($_SESSION['uid'])) { echo htmlspecialchars($user_info['username']); } ?></div>
+                    <div id="cd-content" class="padded-content">
+
+                    </div>
                 </div>
             </div>
             <div id="right-side">

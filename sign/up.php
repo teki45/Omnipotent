@@ -1,4 +1,9 @@
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/layout/header.php'; ?>
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/layout/header.php';
+
+require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/classes/user.php'; use helpers\user;
+$user = new user($conn);
+?>S
 
 <?php
 if (isset($_SESSION['uid'])) { header('Location: /'); }
@@ -18,33 +23,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!preg_match('/^[a-zA-Z0-9_-]+$/', $username)) {
         exit('Username can only contain alphanumerics and underscores.');
     }
-    if ($conn->query("SELECT * FROM users WHERE username = '$username'")->num_rows != 0) {
-        exit('A user with this username already exists.');
-    }
-    if ($conn->query("SELECT * FROM users WHERE email = '$email'")->num_rows != 0) {
-        exit('A user with this email already exists.');
-    }
 
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-    $uid = generate_random_string(20);
+    $result = $user->create($username, $email, $password);
 
-    $stmt = $conn->prepare("INSERT INTO users (uid, username, email, password) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param('ssss', $uid, $username, $email, $hashed_password);
-
-    if(!$stmt->execute()) {
-        exit('Failed to execute query');
+    if ($result === 2) {
+        exit('Username or email is already registered.');
+    } elseif ($result == 0) {
+        exit('User creation failed');
     }
 
     $_SESSION['uid'] = $uid;
 
-    header('Location: /');
+    header('Location: /sign/in.php');
 }
 ?>
 
 <div class="card">
     <div id="cd-title">Sign up to Omnipotent</div>
-    <div id="cd-content">
-        <form method="post" action="">
+    <div id="cd-content" class="padded-content">
+        <form method="post" action="" class="auth">
             <input type="text" name="username" placeholder="Username" required>
             <input type="email" name="email" placeholder="Email" required>
             <input type="password" name="password" placeholder="Password" required>

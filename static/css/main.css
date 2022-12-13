@@ -10,6 +10,57 @@ html {
     color: white;
 }
 
+input, textarea {
+    background: #1c1c1c;
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #2f2f2f;
+    color: white;
+    outline: none;
+    resize: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+input[type='submit'] {
+    background: linear-gradient(to bottom, #5d53ea, #3b349e);
+    border-color: #5d53ea;
+    font-weight: bold;
+}
+
+form.auth, form.post {
+    display: flex;
+    flex-direction: column;
+}
+
+form.auth {
+    align-items: center;
+}
+
+form.auth input, form.post input, form.post textarea {
+    margin-bottom: 4px;
+}
+
+form.auth input {
+    max-width: 200px;
+}
+
+form.auth input[type='submit'] {
+    max-width: 100px;
+}
+
+form.auth input:last-child, form.post input:last-child {
+    margin-bottom: 0;
+}
+
+.padded-content {
+    padding: 10px;
+    padding-bottom: 0px;
+}
+
+.padded-content:last-child {
+    padding-bottom: 10px;
+}
+
 #content {
     padding: 20px 10px;
     display: grid;
@@ -93,4 +144,3 @@ html {
     background: #1f1f1f;
     border-radius: 2px;
 }
-

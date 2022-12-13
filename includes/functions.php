@@ -6,7 +6,7 @@ function generate_random_string($length = 10) {
 
 function get_user_info($uid, $conn) {
     if ($conn->query("SELECT * FROM users WHERE uid = '$uid'")->num_rows != 1) {
-        exit('Could not find this user.');
+        unset($_SESSION['uid']);
     }
 
     if (!$result = $conn->query("SELECT username, bio FROM users WHERE uid = '$uid'")) {

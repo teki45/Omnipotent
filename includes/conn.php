@@ -1,6 +1,6 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '\includes\functions.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php';
 
 ini_set('session.cookie_lifetime', 60 * 60 * 24 * 7); // Set the session to last for a week (7 days) by default
 session_start();

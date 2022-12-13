@@ -1,6 +1,5 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/conn.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php';
 ?>
 
 <!doctype html>
